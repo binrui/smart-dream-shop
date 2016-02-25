@@ -6,7 +6,7 @@
   <name>smart-dream-shop</name>
   <description>smart-dream-shop</description>
   <url>http://projects.spring.io/spring-boot/</url>
-  <packaging>war</packaging>
+  <packaging>jar</packaging>
   <organization>
 		<name>Binrui Software, Inc.</name>
 		<url>http://www.smartshop.com</url>
@@ -31,5 +31,24 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
+	<build>
+	    <plugins>
+	      	<plugin>
+	        	<groupId>org.springframework.boot</groupId>
+	        	<artifactId>spring-boot-maven-plugin</artifactId>
+	      	</plugin>
+		  	<plugin>  
+                <groupId>org.apache.maven.plugins</groupId>  
+                <artifactId>maven-jar-plugin</artifactId>  
+                <configuration>  
+                    <archive>  
+                        <manifest>  
+                        	<addClasspath>true</addClasspath>  
+                            <mainClass>com.smart.shop.Application</mainClass>  
+                        </manifest>  
+                    </archive>  
+                </configuration>  
+  			</plugin>  
+	    </plugins>
+	</build>
 </project>

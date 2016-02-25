@@ -2,6 +2,7 @@ package com.smart.shop;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -10,10 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author lijinfeng
  * @time 2016-02-25 16:32
  * @remark 应用访问入口
- * 1. @RestController 
- * 2. @Controller 模板下使用
+ * 1. @RestController microservice 
+ * 2. @Controller html模板下使用
+ * 3. @ComponentScan 扫描所有的注解组件
  */
 @Controller
+@ComponentScan
 @EnableAutoConfiguration
 public class Application {
 	/**

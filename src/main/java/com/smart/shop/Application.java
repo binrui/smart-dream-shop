@@ -14,9 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * 1. @RestController microservice 
  * 2. @Controller html模板下使用
  * 3. @ComponentScan 扫描所有的注解组件
+ * @SpringBootApplication same as @Configuration @EnableAutoConfiguration @ComponentScan
  */
 @Controller
-@ComponentScan
+@ComponentScan(basePackages = "com.smart.shop")
 @EnableAutoConfiguration
 public class Application {
 	/**

@@ -1,10 +1,15 @@
 package com.smart.shop.view;
 
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.smart.shop.order.TestService;
 
 /**
  * 微服务应用入口
@@ -17,15 +22,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @SpringBootApplication same as @Configuration @EnableAutoConfiguration @ComponentScan
  */
 @Controller
-@ComponentScan(basePackages = "com.smart.shop")
+@ComponentScan(basePackages = "com.smart.shop.view,com.smart.shop.order")
 @EnableAutoConfiguration
 public class Application {
+	@Autowired
+	TestService testService;
+	
+	private Logger logger = Logger.getLogger(Application.class);
 	/**
 	 * 首页
 	 * @return
 	 */
     @RequestMapping("/")
-    String index() {
+    public String index(ModelMap map) {
+    	logger.debug("...index page start...");
+    	String hello = testService.sayHello("lijinfeng");
+    	map.put("name", hello);
+    	logger.info("...index page end...");
+    	logger.warn("...index page warn...");
         return "index";
     }
     

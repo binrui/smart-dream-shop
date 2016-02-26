@@ -35,7 +35,7 @@ public class Application {
      */
     @RequestMapping("/login")
     public String login() {
-        return "Hello World!";
+        return "views/index";
     }
     
     /**
